@@ -1,0 +1,4 @@
+# Combining two tables
+# url: https://leetcode.com/problems/combine-two-tables/
+
+SELECT firstName, lastName, city, state from Person LEFT JOIN Address ON Person.personId = Address.personId

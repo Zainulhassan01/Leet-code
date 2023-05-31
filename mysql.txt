@@ -1,4 +1,20 @@
 # Combining two tables
-# url: https://leetcode.com/problems/combine-two-tables/
+# https://leetcode.com/problems/combine-two-tables/
 
 SELECT firstName, lastName, city, state from Person LEFT JOIN Address ON Person.personId = Address.personId
+
+# employees-earning-more-than-their-managers
+# https://leetcode.com/problems/employees-earning-more-than-their-managers/
+
+SELECT emp.name as Employee from Employee as emp INNER JOIN Employee AS manager
+ON manager.id = emp.managerId WHERE emp.Salary > manager.Salary
+
+# Duplicate emails
+# https://leetcode.com/problems/duplicate-emails/
+
+SELECT email as Email from Person GROUP BY email HAVING COUNT(email) > 1
+
+# customers-who-never-order
+# https://leetcode.com/problems/customers-who-never-order/
+
+SELECT name as Customers from Customers LEFT JOIN Orders ON Customers.id = Orders.customerId where Orders.customerId is null

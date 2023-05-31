@@ -18,3 +18,24 @@ SELECT email as Email from Person GROUP BY email HAVING COUNT(email) > 1
 # https://leetcode.com/problems/customers-who-never-order/
 
 SELECT name as Customers from Customers LEFT JOIN Orders ON Customers.id = Orders.customerId where Orders.customerId is null
+
+# rising-temperature
+# https://leetcode.com/problems/rising-temperature/
+
+select w1.id as Id from Weather w1 inner join Weather w2 
+where w1.temperature > w2.temperature AND DATEDIFF(w1.recordDate , w2.recordDate) = 1
+
+# game-play-analysis
+# https://leetcode.com/problems/game-play-analysis-i/
+
+select player_id, min(event_date) as first_login from Activity group by player_id
+
+# Employee-bonus
+# https://leetcode.com/problems/employee-bonus/
+
+select e.name, b.bonus from Employee e left join Bonus b on e.empId = b.empId where bonus < 1000 || bonus is null
+
+# find-customer-referee
+# https://leetcode.com/problems/find-customer-referee/
+
+select name from Customer where referee_id != 2 || referee_id is null

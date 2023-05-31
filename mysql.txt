@@ -39,3 +39,8 @@ select e.name, b.bonus from Employee e left join Bonus b on e.empId = b.empId wh
 # https://leetcode.com/problems/find-customer-referee/
 
 select name from Customer where referee_id != 2 || referee_id is null
+
+# second-highest-salary
+# https://leetcode.com/problems/second-highest-salary/
+
+SELECT MAX(salary) as SecondHighestSalary from Employee WHERE salary < (SELECT MAX(salary) from Employee)

@@ -64,3 +64,7 @@ select customer_number from Orders group by customer_number order by count(custo
 # https://leetcode.com/problems/not-boring-movies/
 
 select id, movie, description, rating from Cinema where (id % 2) != 0 && description != 'boring' order by rating desc
+
+# triangle-judgement
+# https://leetcode.com/problems/triangle-judgement/
+select x,y,z, case when (x+y>z and y+z>x and x+z>y) then 'Yes' else 'No' end as triangle from Triangle

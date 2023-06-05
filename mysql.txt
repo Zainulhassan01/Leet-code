@@ -49,3 +49,8 @@ SELECT MAX(salary) as SecondHighestSalary from Employee WHERE salary < (SELECT M
 # https://leetcode.com/problems/classes-more-than-5-students/
 
 select class from Courses group by class having count(class) >= 5
+
+# Big countries
+# https://leetcode.com/problems/big-countries/
+
+select name, population, area from World where population >= 25000000 || area >= 3000000

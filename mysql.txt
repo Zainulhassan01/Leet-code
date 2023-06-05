@@ -1,0 +1,61 @@
+# Combining two tables
+# https://leetcode.com/problems/combine-two-tables/
+
+SELECT firstName, lastName, city, state from Person LEFT JOIN Address ON Person.personId = Address.personId
+
+# employees-earning-more-than-their-managers
+# https://leetcode.com/problems/employees-earning-more-than-their-managers/
+
+SELECT emp.name as Employee from Employee as emp INNER JOIN Employee AS manager
+ON manager.id = emp.managerId WHERE emp.Salary > manager.Salary
+
+# Duplicate emails
+# https://leetcode.com/problems/duplicate-emails/
+
+SELECT email as Email from Person GROUP BY email HAVING COUNT(email) > 1
+
+# customers-who-never-order
+# https://leetcode.com/problems/customers-who-never-order/
+
+SELECT name as Customers from Customers LEFT JOIN Orders ON Customers.id = Orders.customerId where Orders.customerId is null
+
+# rising-temperature
+# https://leetcode.com/problems/rising-temperature/
+
+select w1.id as Id from Weather w1 inner join Weather w2 
+where w1.temperature > w2.temperature AND DATEDIFF(w1.recordDate , w2.recordDate) = 1
+
+# game-play-analysis
+# https://leetcode.com/problems/game-play-analysis-i/
+
+select player_id, min(event_date) as first_login from Activity group by player_id
+
+# Employee-bonus
+# https://leetcode.com/problems/employee-bonus/
+
+select e.name, b.bonus from Employee e left join Bonus b on e.empId = b.empId where bonus < 1000 || bonus is null
+
+# find-customer-referee
+# https://leetcode.com/problems/find-customer-referee/
+
+select name from Customer where referee_id != 2 || referee_id is null
+
+# second-highest-salary
+# https://leetcode.com/problems/second-highest-salary/
+
+SELECT MAX(salary) as SecondHighestSalary from Employee WHERE salary < (SELECT MAX(salary) from Employee)
+
+# Classes More Than 5 Students
+# https://leetcode.com/problems/classes-more-than-5-students/
+
+select class from Courses group by class having count(class) >= 5
+
+# Big countries
+# https://leetcode.com/problems/big-countries/
+
+select name, population, area from World where population >= 25000000 || area >= 3000000
+
+# customer placing large number of orders
+# https://leetcode.com/problems/customer-placing-the-largest-number-of-orders/
+
+select customer_number from Orders group by customer_number order by count(customer_number) desc limit 1
